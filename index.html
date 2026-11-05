@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen Care | بوتيك كوين كير</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
+</head>
+<body class="bg-pink-50 min-h-screen text-gray-800 flex flex-col">
+
+    <!-- Navbar -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold text-pink-600">Queen Care</h1>
+                <p class="text-xs text-gray-500">بوتيك كوين كير - عطبرة</p>
+            </div>
+            <button onclick="toggleCart()" class="relative bg-pink-100 p-2 rounded-full text-pink-600 hover:bg-pink-200 transition">
+                🛒 السلة
+                <span id="cart-count" class="absolute -top-1 -right-1 bg-pink-600 text-white text-xs px-2 py-0.5 rounded-full">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="bg-gradient-to-r from-pink-500 to-rose-400 text-white text-center py-8 px-4 shadow-inner">
+        <h2 class="text-3xl font-extrabold mb-2">أهلاً بكِ في بوتيك كوين كير</h2>
+        <p class="text-sm">عطبرة - خليوه جوار صيدلية خليوه الحديثة</p>
+        <p class="text-xs mt-1 opacity-90">مستحضرات تجميل - عطور - اكسسوارات - عطبرة</p>
+    </section>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow">
+        <!-- Categories Filter -->
+        <div class="flex justify-center gap-3 mb-8 flex-wrap">
+            <button onclick="filterCategory('all')" class="cat-btn bg-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow">الكل</button>
+            <button onclick="filterCategory('makeup')" class="cat-btn bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-semibold shadow hover:bg-pink-100">مستحضرات تجميل</button>
+            <button onclick="filterCategory('perfumes')" class="cat-btn bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-semibold shadow hover:bg-pink-100">عطور</button>
+            <button onclick="filterCategory('accessories')" class="cat-btn bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-semibold shadow hover:bg-pink-100">اكسسوارات</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- المنتجات تُحمل تلقائياً من JS -->
+        </div>
+    </main>
+
+    <!-- Drawer Cart -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-4 bg-pink-600 text-white flex justify-between items-center">
+            <h3 class="font-bold text-lg">سلة التسوق</h3>
+            <button onclick="toggleCart()" class="text-xl font-bold">&times;</button>
+        </div>
+        <div id="cart-items" class="p-4 flex-grow overflow-y-auto divide-y">
+            <!-- عناصر السلة -->
+        </div>
+        <div class="p-4 border-t bg-gray-50">
+            <div class="flex justify-between font-bold mb-4">
+                <span>الإجمالي:</span>
+                <span id="cart-total">0
